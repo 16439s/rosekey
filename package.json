@@ -1,7 +1,11 @@
 {
-	"name": "cherrypick",
-	"version": "4.7.0-beta.2",
+	"name": "rosekey",
+	"version": "4.6.0",
 	"basedMisskeyVersion": "2024.2.0-beta.10",
+	"basedCherryPickVersion": "4.6.0",
+	"InternalVersions": "A",
+	"Revision": "1",
+	"Type": "dev",
 	"codename": "nasubi",
 	"repository": {
 		"type": "git",

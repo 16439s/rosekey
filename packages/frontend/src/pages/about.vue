@@ -24,16 +24,23 @@ SPDX-License-Identifier: AGPL-3.0-only
 				</MkKeyValue>
 
 				<FormSection>
-					<div class="_gaps_m">
-						<MkKeyValue :copy="version">
-							<template #key>Rosekey</template>
-							<template #value>{{ version }}</template>
-						</MkKeyValue>
-						<div v-html="i18n.tsx.poweredByMisskeyDescription({ name: instance.name ?? host })">
-						</div>
-						<FormLink to="/about-misskey">{{ i18n.ts.aboutMisskey }}</FormLink>
-					</div>
-				</FormSection>
+                    <div class="_gaps_m">
+                      <MkKeyValue :copy="version">
+                          <template #key>Rosekey</template>
+                          <template #value>{{ version }}</template>
+                      </MkKeyValue> <!-- ここでMkKeyValueコンポーネントの終了タグを追加 -->
+                      <div>
+                          VERSION: {{ internalVersion }}
+                      </div>
+                      <div>
+                          REVISION: {{ revision }}
+                      </div>
+                    </div>
+                    <div v-html="i18n.tsx.poweredByMisskeyDescription({ name: instance.name ?? host })">
+                    </div>
+                    <FormLink to="/about-misskey">{{ i18n.ts.aboutMisskey }}</FormLink>
+                </FormSection>
+
 
 				<FormSection>
 					<div class="_gaps_m">
@@ -108,7 +115,7 @@ import { computed, watch, ref } from 'vue';
 import * as Misskey from 'cherrypick-js';
 import XEmojis from './about.emojis.vue';
 import XFederation from './about.federation.vue';
-import { version, host } from '@/config.js';
+import { version, host, revision, internalVersion } from '@/config.js';
 import FormLink from '@/components/form/link.vue';
 import FormSection from '@/components/form/section.vue';
 import FormSuspense from '@/components/form/suspense.vue';

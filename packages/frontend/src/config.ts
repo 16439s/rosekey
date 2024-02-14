@@ -4,6 +4,7 @@
  */
 
 import { miLocalStorage } from '@/local-storage.js';
+import meta from './../../../package.json'
 
 const address = new URL(document.querySelector<HTMLMetaElement>('meta[property="instance_url"]')?.content || location.href);
 const siteName = document.querySelector<HTMLMetaElement>('meta[property="og:site_name"]')?.content;
@@ -19,7 +20,9 @@ const preParseLocale = miLocalStorage.getItem('locale');
 export let locale = preParseLocale ? JSON.parse(preParseLocale) : null;
 export const version = _VERSION_;
 export const basedMisskeyVersion = _BASEDMISSKEYVERSION_;
-export const instanceName = siteName === 'CherryPick' ? host : siteName;
+export const internalVersion = meta.InternalVersions;
+export const revision = meta.Revision;
+export const instanceName = siteName === 'Rosekey' ? host : siteName;
 export const ui = miLocalStorage.getItem('ui');
 export const debug = miLocalStorage.getItem('debug') === 'true';
 
